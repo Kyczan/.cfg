@@ -109,13 +109,6 @@ gpg --recv-keys 5CC908FDB71E12C2
 
 ## i3
 
-It is worth to make symlink from repo to i3 config folder (assuming that i3 config is in `~/.config/i3`):
-
-```sh
-rm -rf ~/.config/i3
-ln -s $DOTS/i3 ~/.config
-```
-
 ### shortcuts
 
 - `super` - win key
@@ -223,18 +216,6 @@ This block shows actual temperature in desired location with small icon about we
 
 Dots are files that reside in your home directory and their filenames start from `.` (dot).
 
-Symlink all files from `dots/` to `~/`
-
-```sh
-ln -s $DOTS/dots/.* ~/
-```
-
-Then reload `.Xresources`:
-
-```sh
-source ~/.Xresources
-```
-
 ### .aliases
 
 Contains useful shortcuts.
@@ -268,26 +249,10 @@ Runs when X session starts. Loads theme from `.Xresources` and opens i3.
 
 Defines theme for system. Loads params from `.xres` folder.
 
-To get to work `.xres` create symlink:
-
-```sh
-ln -s $DOTS/.xres ~/
-```
-
 ## dunst
 
-Create symlink:
-
-```sh
-rm -rf ~/.config/dunst
-ln -s $DOTS/dunst ~/.config
-```
+Shows notifications.
 
 ## ranger
 
-Create symlink:
-
-```sh
-rm -rf ~/.config/ranger
-ln -s $DOTS/ranger ~/.config
-```
+Terminal based file manager.
