@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# path to dotfiles
-DOTS=~/Projects/dotfiles
-
 # install lot of apps
 sudo pacman -S --needed --noconfirm curl gvim rofi i3blocks feh lxappearance pulseaudio playerctl compton acpi scrot numlockx vivaldi ranger w3m bat exa sysstat dunst youtube-dl nodejs xclip ruby
 
@@ -24,35 +21,30 @@ gpg --recv-keys 5CC908FDB71E12C2
 # install AUR packages
 yay -S i3-gaps i3lock-color-git system-san-francisco-font-git ttf-ms-fonts ttf-font-awesome-4 paper-gtk-theme-git paper-icon-theme-git imagemagick xss-lock-git code spotify vivaldi-widevine vivaldi-ffmpeg-codecs icons-in-terminal
 
-# symlink i3
-rm -rf ~/.config/i3
-ln -s $DOTS/i3 ~/.config
+# clone bare repo and pull dotfiles
+git clone --bare git@github.com:Kyczan/.cfg.git $HOME/.cfg
+function config {
+   /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME $@
+}
+mkdir -p .config-backup
+config checkout
+if [ $? = 0 ]; then
+  echo "Checked out config.";
+  else
+    echo "Backing up pre-existing dot files.";
+    config checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} mv {} .config-backup/{}
+fi;
+config checkout
+config config status.showUntrackedFiles no
 
-# symlink i3
-rm -rf ~/.config/ranger
-ln -s $DOTS/ranger ~/.config
-
-# symlink my bin
-ln -s $DOTS/bin ~/
-
-# symlink xres
-ln -s $DOTS/.xres ~/
-
-# symlink all files from dots/
-ln -s $DOTS/dots/.* ~/
-
-# symlink dunst
-rm -rf ~/.config/dunst
-ln -s $DOTS/dunst ~/.config
-
-# install pathogen
+# install pathogen for vim
 mkdir -p ~/.vim/autoload ~/.vim/bundle && \
 curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 
-# install CtrlP
+# install CtrlP for vim
 git clone https://github.com/kien/ctrlp.vim.git ~/.vim/bundle/ctrlp.vim
 
-# install NERDTree
+# install NERDTree for vim
 git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree
 
 # reload bash

@@ -2,7 +2,11 @@
 
 My Arch configuration files
 
-![My desktop](./scrots/desktop.png)
+Instead of creating dotfiles folder and symlink files to home directory - this project uses bare git repository.
+
+For reference to learn about bare git repo dotfiles see this [article](https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/).
+
+![My desktop](./.setup/scrots/desktop.png)
 
 ## TOC <!-- omit in toc -->
 
@@ -36,7 +40,26 @@ My Arch configuration files
 
 ## installation
 
-To get i3 looking like in pictures you have to install some programs. `install.sh` installs below applications and does some configuration. But use it on your own risk.
+Clone and configure bare git repository
+
+```sh
+git clone --bare git@github.com:Kyczan/.cfg.git $HOME/.cfg
+function config {
+   /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME $@
+}
+mkdir -p .config-backup
+config checkout
+if [ $? = 0 ]; then
+  echo "Checked out config.";
+  else
+    echo "Backing up pre-existing dot files.";
+    config checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} mv {} .config-backup/{}
+fi;
+config checkout
+config config status.showUntrackedFiles no
+```
+
+To get i3 looking like in pictures you have to install some programs. `.setup/install.sh` clones bare git repo, installs below applications and does some configuration. But use it on your own risk.
 
 ### core
 
@@ -106,12 +129,12 @@ ln -s $DOTS/i3 ~/.config
 - `super + shift + r` - restart i3 inplace, reloads profile files
 - `super + p` - open modal window that allows to lock, restart, shutdown, reboot system or restarts i3
 
-  ![power](./scrots/power.png)
+  ![power](./.setup/scrots/power.png)
 
 - `super + enter` - open terminal
 - `super + d` - open list of apps
 
-  ![rofi](./scrots/rofi.png)
+  ![rofi](./.setup/scrots/rofi.png)
 
 - `super + q` - kill active window
 - `super + h|j|k|l` - change focus to next window
@@ -128,17 +151,17 @@ ln -s $DOTS/i3 ~/.config
 - `super + n` - run network applet
 - `super + i` - search for icons. Selected icon is copied to clipboard
 
-  ![usb](./scrots/icons.png)
+  ![usb](./.setup/scrots/icons.png)
 
 - `super + m` - mount / unmount usb drive
 
-  ![usb](./scrots/usb.png)
+  ![usb](./.setup/scrots/usb.png)
 
 - `super + PrintScreen` - make screenshot and save to `~/Pictures/screenshots/`
 
 ## i3 blocks
 
-![My blocks](./scrots/blocks.png)
+![My blocks](./.setup/scrots/blocks.png)
 
 Block definitions are located in `./i3/i3blocks/blocks`
 
@@ -150,13 +173,13 @@ Shows actual state of battery. Changes color accordingly to battery level. Also 
 
 Shows cpu load for every core. When clicked - shows notification with ten most consuming processes.
 
-![cpu](./scrots/cpu.png)
+![cpu](./.setup/scrots/cpu.png)
 
 ### date
 
 Shows actual date. When clicked - shows calendar.
 
-![calendar](./scrots/calendar.png)
+![calendar](./.setup/scrots/calendar.png)
 
 ### keyindicator
 
@@ -166,7 +189,7 @@ Shows info if numlock, capslock or scrolllock is enabled.
 
 Shows memory load. When clicked - shows notification with ten most memory consuming programs.
 
-![memory](./scrots/memory.png)
+![memory](./.setup/scrots/memory.png)
 
 ### network
 
@@ -194,7 +217,7 @@ First make account on [openweathermap.org](https://openweathermap.org) and obtai
 
 This block shows actual temperature in desired location with small icon about weather conditions. After left click it shows detailed notification.
 
-![weather](./scrots/weather.png)
+![weather](./.setup/scrots/weather.png)
 
 ## dots
 
@@ -224,7 +247,7 @@ Runs once on logon.
 
 Runs every time when bash starts (new terminal window is spawn). Loads aliases and creates custom prompt line:
 
-![prompt](./scrots/prompt.png)
+![prompt](./.setup/scrots/prompt.png)
 
 ### .vimrc
 
