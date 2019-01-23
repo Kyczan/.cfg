@@ -156,7 +156,7 @@ gpg --recv-keys 5CC908FDB71E12C2
 
 ![My blocks](./.setup/scrots/blocks.png)
 
-Block definitions are located in `./i3/i3blocks/blocks`
+Block definitions are located in `./.config/i3/i3blocks/blocks`
 
 ### battery
 

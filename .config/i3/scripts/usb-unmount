@@ -1,7 +1,7 @@
 #!/bin/bash
 
 COLS="name,type,size,mountpoint"
-ICON=$DOTS/dunst/icons/drive-harddisk-usb.png
+ICON=$HOME/.config/dunst/icons/drive-harddisk-usb.png
 
 drives=$(lsblk -rpo "$COLS" | awk '$2=="disk"&&$4!~/boot|SWAP/&&length($4)>1{printf "%s (%s) on %s\n",$1,$3,$4}')
 [ -z "$drives" ] && notify-send "USB" "Nothing to unmount." -i $ICON && exit

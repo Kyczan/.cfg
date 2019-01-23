@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. $DOTS/i3/scripts/set-label
+. $HOME/.config/i3/scripts/set-label
 
 # icons from icons-in-terminal
 . $HOME/.local/share/icons-in-terminal/icons_bash.sh

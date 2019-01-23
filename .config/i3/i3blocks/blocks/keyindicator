@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. $DOTS/i3/scripts/set-label
+. $HOME/.config/i3/scripts/set-label
 
 type="${BLOCK_INSTANCE:-CAPS}"
 lockLine=$(xset -q | grep "Num Lock")

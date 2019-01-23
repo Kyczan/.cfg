@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ICON=$DOTS/dunst/icons/input-tablet.png
+ICON=$HOME/.config/dunst/icons/input-tablet.png
 
 # Toggle the touchpad on/off.
 

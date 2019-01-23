@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. $DOTS/i3/scripts/get-color
+. $HOME/.config/i3/scripts/get-color
 
 function set-label () {
   echo "${1}"

@@ -1,9 +1,9 @@
 #!/bin/bash
 
-. $DOTS/i3/scripts/set-font
-. $DOTS/i3/scripts/get-color
+. $HOME/.config/i3/scripts/set-font
+. $HOME/.config/i3/scripts/get-color
 
-icon=$DOTS/dunst/icons/calendar.png
+icon=$HOME/.config/dunst/icons/calendar.png
 today=`date '+%e'`
 fg=`get-color i3.bgrnd`
 bg=`get-color i3.block.fgrnd`

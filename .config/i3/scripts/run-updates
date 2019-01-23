@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ICON=$DOTS/dunst/icons/software-update-available.png
+ICON=$HOME/.config/dunst/icons/software-update-available.png
 
 vivaldi_count=`/usr/bin/checkupdates | grep vivaldi | wc -l`
 update="yay"

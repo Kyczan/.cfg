@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ICON=$DOTS/dunst/icons/system-reboot.png
+ICON=$HOME/.config/dunst/icons/system-reboot.png
 
 . $HOME/.bash_profile
 xrdb $HOME/.Xresources

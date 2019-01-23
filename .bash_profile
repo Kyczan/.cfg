@@ -6,7 +6,6 @@ export PATH="$HOME/bin:$PATH:$(ruby -e 'print Gem.user_dir')/bin"
 export XDG_CONFIG_HOME="$HOME/.config"
 # My variables
 export MY_EDITOR="code"
-export DOTS="$HOME/Projects/dotfiles"
 export VISUAL="vim"
 export SUDO_ASKPASS=~/bin/password
 

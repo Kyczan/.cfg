@@ -48,3 +48,6 @@ alias rm="rimraf"
 
 # ssh
 alias sshpi="ssh pi@pihole"
+
+# git alias for dotfiles bare git repo
+alias config='/usr/bin/git --git-dir=/home/kowal/.cfg/ --work-tree=/home/kowal'

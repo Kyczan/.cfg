@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. $DOTS/i3/scripts/set-label
+. $HOME/.config/i3/scripts/set-label
 
 # icons from icons-in-terminal
 . $HOME/.local/share/icons-in-terminal/icons_bash.sh
@@ -14,7 +14,7 @@ label="$glyph_power ${battery_power}%"
 urgent_value=5
 cache_full=~/.cache/i3blocks/battery_full
 cache_low=~/.cache/i3blocks/battery_low
-icon=$DOTS/dunst/icons/battery.png
+icon=$HOME/.config/dunst/icons/battery.png
 
 if [[ "${battery_state}" = "Charging" || "${battery_state}" = "Full" ]]; then
 

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. $DOTS/i3/scripts/set-label
+. $HOME/.config/i3/scripts/set-label
 
 # icons from icons-in-terminal
 . $HOME/.local/share/icons-in-terminal/icons_bash.sh
@@ -12,5 +12,5 @@ set-label "$label" i3.block.fgrnd
 
 
 case $BLOCK_BUTTON in
-  1) $DOTS/i3/scripts/run-calendar
+  1) $HOME/.config/i3/scripts/run-calendar
 esac

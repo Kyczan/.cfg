@@ -73,4 +73,3 @@ xrdb -merge $HOME/.Xresources
 
 # added by travis gem
 [ -f /home/kowal/.travis/travis.sh ] && source /home/kowal/.travis/travis.sh
-alias config='/usr/bin/git --git-dir=/home/kowal/.cfg/ --work-tree=/home/kowal'

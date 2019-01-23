@@ -1,9 +1,9 @@
 #!/bin/bash
 
-. $DOTS/i3/scripts/set-font
+. $HOME/.config/i3/scripts/set-font
 
 mem_procs=$(ps axc -o cmd:15,%mem --sort=-%mem | head);
-icon=$DOTS/dunst/icons/computer.png
+icon=$HOME/.config/dunst/icons/computer.png
 
 notify_info=`set-font "$mem_procs"`
 

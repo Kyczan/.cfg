@@ -6,8 +6,8 @@ function parse {
   echo $VALUE ;
 }
 
-. $DOTS/i3/scripts/set-label
-. $DOTS/i3/scripts/set-font
+. $HOME/.config/i3/scripts/set-label
+. $HOME/.config/i3/scripts/set-font
 
 # icons from icons-in-terminal
 . $HOME/.local/share/icons-in-terminal/icons_bash.sh
@@ -31,7 +31,7 @@ icon_fog=`echo -e $fa_align_justify`
 icon_night=`echo -e $fa_moon_o`
 
 celsius="℃"
-icon_base=$DOTS/dunst/icons/weather-
+icon_base=$HOME/.config/dunst/icons/weather-
 
 weather_url="http://api.openweathermap.org/data/2.5/weather?id=${city_id}&appid=${api_key}&units=metric"
 

@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-. $DOTS/i3/scripts/set-label
+. $HOME/.config/i3/scripts/set-label
 
 # icons from icons-in-terminal
 . $HOME/.local/share/icons-in-terminal/icons_bash.sh
@@ -12,7 +12,7 @@ label="$glyph_update ${package_count}"
 
 # update on left click
 case $BLOCK_BUTTON in
-  1) $DOTS/i3/scripts/run-updates 
+  1) $HOME/.config/i3/scripts/run-updates 
 esac
 
 if [[ "${package_count}" -gt 0 ]]; then
