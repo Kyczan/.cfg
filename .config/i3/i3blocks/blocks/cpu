@@ -1,0 +1,23 @@
+#!/bin/bash
+
+. $DOTS/i3/scripts/set-label
+
+# icons from icons-in-terminal
+. $HOME/.local/share/icons-in-terminal/icons_bash.sh
+glyph_cpu=`echo -e $oct_flame`
+
+case $BLOCK_BUTTON in
+  1) $DOTS/i3/scripts/cpu-processes
+esac
+
+used_cpu_arr=($(mpstat 2 1 -P ALL | awk '$1 ~ /Average/ && $2 ~ /[0-9]+/ {print int(100 - $12 + 0.5)}'));
+label="$glyph_cpu[${used_cpu_arr[@]}]%"
+set-label "$label" i3.block.fgrnd
+
+# Alarm if one of cores is on heavy load
+for i in "${used_cpu_arr[@]}"
+do
+  if [[ $i -gt 90 ]]; then
+    exit 33
+  fi
+done

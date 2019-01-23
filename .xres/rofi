@@ -1,0 +1,26 @@
+!! rofi
+
+! Enable the extended coloring options
+rofi.color-enabled:     true
+
+!                       bg       border  separator
+rofi.color-window:      bg,      mag,    mag
+
+!                       bg       fg      bg-alt      hl-bg       hl-fg
+rofi.color-normal:      bg,      fg,     bg,         blu,        blk
+rofi.color-active:      grn,     blk,    grn,        grn,        blk2
+rofi.color-urgent:      red,     fg,     red,        red,        wht
+
+rofi.separator-style:   none
+rofi.sidebar-mode:      false
+rofi.bw:                1
+rofi.columns:           1
+rofi.padding:           16
+rofi.scrollbar-width:   3
+rofi.yoffset:           0
+rofi.fake-transparency: false
+rofi.location:          0
+rofi.width:             50
+rofi.font:              fnt1 12
+rofi.lines:             15
+rofi.fixed-num-lines:   true

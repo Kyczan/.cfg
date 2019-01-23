@@ -1,0 +1,10 @@
+#!/bin/bash
+
+. $DOTS/i3/scripts/set-label
+
+# icons from icons-in-terminal
+. $HOME/.local/share/icons-in-terminal/icons_bash.sh
+glyph_time=`echo -e $md_access_time`
+
+label="$glyph_time $(date '+%H:%M')"
+set-label "$label" i3.block.fgrnd

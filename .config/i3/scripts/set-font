@@ -1,0 +1,5 @@
+#!/bin/bash
+
+function set-font () {
+  echo "<span font-family='monospace'>$1</span>"
+}

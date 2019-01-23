@@ -1,0 +1,21 @@
+#!/bin/bash
+
+SCRIPT_FOLDER="$HOME/bin"
+SCRIPT_FILE="$SCRIPT_FOLDER/$1"
+SHEBANG="#!/bin/bash"
+SHEBANG_JS="#!/usr/bin/env node"
+
+if [[ $2 == "js" ]]; then
+  SHEBANG=$SHEBANG_JS
+fi
+
+if [[ -f $SCRIPT_FILE ]]; then
+  $MY_EDITOR $SCRIPT_FILE
+else
+  touch $SCRIPT_FILE
+  echo "$SHEBANG" > $SCRIPT_FILE
+  chmod +x $SCRIPT_FILE
+  $MY_EDITOR $SCRIPT_FILE
+fi
+
+c

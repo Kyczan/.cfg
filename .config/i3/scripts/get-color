@@ -1,0 +1,31 @@
+#!/bin/bash
+
+function get-color () {
+
+  color_name=$1
+
+  case $color_name in
+    "fg"|"foreground")    color_number="foreground" ;;
+    "bg"|"background")    color_number="background" ;;
+    "blk"|"color0")       color_number="color0" ;;
+    "blk2"|"color8")      color_number="color8" ;;
+    "red"|"color1")       color_number="color1" ;;
+    "red2"|"color9")      color_number="color9" ;;
+    "grn"|"color2")       color_number="color2" ;;
+    "grn2"|"color10")     color_number="color10" ;;
+    "ylw"|"color3")       color_number="color3" ;;
+    "ylw2"|"color11")     color_number="color11" ;;
+    "blu"|"color4")       color_number="color4" ;;
+    "blu2"|"color12")     color_number="color12" ;;
+    "mag"|"color5")       color_number="color5" ;;
+    "mag2"|"color13")     color_number="color13" ;;
+    "cyn"|"color6")       color_number="color6" ;;
+    "cyn2"|"color14")     color_number="color14" ;;
+    "wht"|"color7")       color_number="color7" ;;
+    "wht2"|"color15")     color_number="color15" ;;
+    *) color_number=$color_name
+  esac
+
+  echo $(xrdb -query | grep -m 1 $color_number | awk '{print $NF}')
+  
+}

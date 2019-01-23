@@ -1,0 +1,10 @@
+#!/bin/bash
+
+. $DOTS/i3/scripts/set-font
+
+cpu_procs=$(ps axc -o cmd:15,%cpu --sort=-%cpu | head);
+icon=$DOTS/dunst/icons/computer.png
+
+notify_info=`set-font "$cpu_procs"`
+
+notify-send "CPU" "$notify_info" -i "$icon"

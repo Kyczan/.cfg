@@ -1,0 +1,3 @@
+#!/bin/bash
+
+st -e sh -c "nm-applet"

@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# icons from icons-in-terminal
+. $HOME/.local/share/icons-in-terminal/icons_bash.sh
+
+icon=`icons-in-terminal print_icons | awk '!/\[1;33m/ && !/\[0;32m/ && !/^\s*$/' | rofi -dmenu -p "Search for icons"`
+
+if [[ "${icon}" != "" ]]; then
+  color_icon=$DOTS/dunst/icons/clipboard.png
+  echo $icon | xargs | xclip -selection c
+  notify-send "Icon copied!" "${icon}" -i $color_icon
+fi

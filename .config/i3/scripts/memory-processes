@@ -1,0 +1,10 @@
+#!/bin/bash
+
+. $DOTS/i3/scripts/set-font
+
+mem_procs=$(ps axc -o cmd:15,%mem --sort=-%mem | head);
+icon=$DOTS/dunst/icons/computer.png
+
+notify_info=`set-font "$mem_procs"`
+
+notify-send "Memory" "$notify_info" -i "$icon"

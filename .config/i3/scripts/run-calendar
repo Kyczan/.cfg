@@ -1,0 +1,15 @@
+#!/bin/bash
+
+. $DOTS/i3/scripts/set-font
+. $DOTS/i3/scripts/get-color
+
+icon=$DOTS/dunst/icons/calendar.png
+today=`date '+%e'`
+fg=`get-color i3.bgrnd`
+bg=`get-color i3.block.fgrnd`
+calendar=`set-font "$(cal -m)"`
+
+# replace today with colored today
+calendar=${calendar/" $today "/" </span><span font-family='monospace' background='$bg' color='$fg'>$today</span><span font-family='monospace'> "}
+
+notify-send "Calendar" "$calendar" -i "$icon"

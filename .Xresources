@@ -1,0 +1,14 @@
+
+#define fnt1 System San Francisco Display
+#define fsz1 8
+#define fnt2 FontAwesome
+#define fsz2 8
+#define fnt3 DejaVu Sans Mono
+#define fsz3 14
+#define brws chromium
+#define padd 5
+
+#include </home/kowal/.xres/themes/dracula>
+#include </home/kowal/.xres/color>
+#include </home/kowal/.xres/i3>
+#include </home/kowal/.xres/rofi>

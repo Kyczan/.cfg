@@ -1,0 +1,20 @@
+!! Dracula Xresources palette
+#define bg                 #282A36
+#define fg                 #F8F8F2
+
+#define blk                #000000
+#define blk2               #4D4D4D
+#define red                #FF5555
+#define red2               #FF6E67
+#define grn                #50FA7B
+#define grn2               #5AF78E
+#define ylw                #F1FA8C
+#define ylw2               #F4F99D
+#define blu                #BD93F9
+#define blu2               #CAA9FA
+#define mag                #FF79C6
+#define mag2               #FF92D0
+#define cyn                #8BE9FD
+#define cyn2               #9AEDFE
+#define wht                #BFBFBF
+#define wht2               #E6E6E6

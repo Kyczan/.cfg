@@ -1,0 +1,119 @@
+#!/bin/bash
+# Based on http://openweathermap.org/current
+
+function parse {
+  VALUE=`node -pe "JSON.parse(process.argv[1]).${2}" "${1}"`
+  echo $VALUE ;
+}
+
+. $DOTS/i3/scripts/set-label
+. $DOTS/i3/scripts/set-font
+
+# icons from icons-in-terminal
+. $HOME/.local/share/icons-in-terminal/icons_bash.sh
+
+# Get API key from cfg file
+. $HOME/.config/i3/i3blocks/blocks/weather.cfg
+api_key="${OPENWEATHER_API_KEY}"
+
+# Check on http://openweathermap.org/find
+city_id="${BLOCK_INSTANCE}"
+
+urgent_low=0
+urgent_high=30
+
+icon_sun=`echo -e $fa_sun_o`
+icon_cloud=`echo -e $fa_cloud`
+icon_rain=`echo -e $fa_umbrella`
+icon_storm=`echo -e $fa_bolt`
+icon_snow=`echo -e $fa_snowflake_o`
+icon_fog=`echo -e $fa_align_justify`
+icon_night=`echo -e $fa_moon_o`
+
+celsius="℃"
+icon_base=$DOTS/dunst/icons/weather-
+
+weather_url="http://api.openweathermap.org/data/2.5/weather?id=${city_id}&appid=${api_key}&units=metric"
+
+data=$(wget -qO- "${weather_url}")
+weather_main=`parse "${data}" weather[0].main`
+weather_code=`parse "${data}" weather[0].id`
+temp=`parse "${data}" main.temp`
+weather_icon=`parse "${data}" weather[0].icon`
+
+case ${weather_code} in
+  6*) # snow
+    icon=${icon_snow} 
+    color_icon=${icon_base}snow.png ;; 
+  3*|5*) # rain, drizzle
+    icon=${icon_rain} 
+    color_icon=${icon_base}rain.png ;; 
+  800*) # clear
+    case ${weather_icon} in
+      01n) # night
+        icon=${icon_night} 
+        color_icon=${icon_base}moon.png ;; 
+      *) # day
+        icon=${icon_sun} 
+        color_icon=${icon_base}sun.png ;; 
+    esac ;; 
+  80*) # cloudy
+    icon=${icon_cloud} 
+    color_icon=${icon_base}cloud.png ;; 
+  7*) # fog
+    icon=${icon_fog} 
+    color_icon=${icon_base}cloud.png ;; 
+  2*) # storm
+    icon=${icon_storm} 
+    color_icon=${icon_base}rain.png ;; 
+  9*) # extreme
+    icon=${weather_main} 
+    color_icon=${icon_base}alert.png ;; 
+  *) # probably no internet
+    icon="?" 
+    color_icon=${icon_base}alert.png 
+esac
+
+set-label "${icon} ${temp}${celsius}" i3.block.fgrnd
+
+function display-weather-details() {
+  glyph_temp=`echo -e $fa_thermometer`
+  glyph_cloud=`echo -e $fa_cloud`
+  glyph_humidity=`echo -e $weather_humidity`
+  glyph_pressure=`echo -e $weather_barometer`
+  glyph_wind=`echo -e $weather_strong_wind`
+  glyph_sunrise=`echo -e $weather_sunrise`
+  glyph_sunset=`echo -e $weather_sunset`
+  glyph_daytime=`echo -e $md_timelapse`
+
+  description=`parse "${data}" weather[0].description`
+  clouds=`parse "${data}" clouds.all`
+  humidity=`parse "${data}" main.humidity`
+  pressure=`parse "${data}" main.pressure`
+  city=`parse "${data}" name`
+  windms=`parse "${data}" wind.speed`
+  wind=$(echo "scale=1; $windms*3.6" | bc )
+  sunrise=`parse "${data}" sys.sunrise`
+  sunset=`parse "${data}" sys.sunset`
+  daytime=$(($sunset-$sunrise))
+
+  notify_info=`set-font "$city: $description
+$glyph_temp   $temp$celsius
+$glyph_cloud  $clouds%
+$glyph_humidity   $humidity%
+$glyph_pressure   ${pressure}hPa
+$glyph_wind  ${wind}km/h
+$glyph_sunrise  $(date '+%H:%M' --date=@${sunrise})
+$glyph_sunset  $(date '+%H:%M' --date=@${sunset})
+$glyph_daytime   $(date '+%H:%M' --date=@${daytime} -u)"`
+  
+  notify-send "$weather_main" "$notify_info" -i $color_icon
+}
+
+case $BLOCK_BUTTON in
+  1) display-weather-details
+esac
+
+if [[ "${temp}" -lt "${urgent_low}" ]] || [[ "${temp}" -gt "${urgent_high}" ]]; then
+  exit 33
+fi

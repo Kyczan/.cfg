@@ -1,0 +1,26 @@
+#!/bin/bash
+
+ICON=$DOTS/dunst/icons/input-tablet.png
+
+# Toggle the touchpad on/off.
+
+# Get the id number of the touchpad.
+tp_id=`xinput list | grep -i touchpad | awk '{ print $6 }' | sed 's/id=//'`
+
+# Find out whether the touchpad is enabled or not.
+tp_enabled=`xinput list-props $tp_id | grep Device\ Enabled | awk '{ print $4 }'`
+
+if [ $tp_enabled = 0 ]
+then
+  # The touchpad is currently disabled, so turn it on.
+  xinput set-prop $tp_id "Device Enabled" 1
+  notify-send "Touchpad" "Device is now <b>ON</b>" -i $ICON
+elif [ $tp_enabled = 1 ]
+then
+  # The touchpad is currently enabled, so turn it off.
+  xinput set-prop $tp_id "Device Enabled" 0
+  notify-send "Touchpad" "Device is now <b>OFF</b>" -i $ICON
+else
+  notify-send "Touchpad" "Unknown state of device" -i $ICON -u CRITICAL
+  exit 1
+fi

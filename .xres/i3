@@ -1,0 +1,21 @@
+!! i3
+i3.bgrnd:           bg
+i3.fgrnd:           mag
+i3.inact:           blu2
+i3.urgen:           red
+i3.fntpri:          fnt1
+i3.fntsz:           fsz1
+i3.fntsec:          fnt2
+i3.trans:           CC
+
+!! i3 block
+i3.block.fgrnd:     cyn
+i3.block.inact:     blu2
+i3.block.title:     fg
+
+!! i3 block battery
+i3.block.batt.1:    cyn
+i3.block.batt.2:    grn
+i3.block.batt.3:    ylw
+i3.block.batt.4:    red2
+i3.block.batt.5:    red

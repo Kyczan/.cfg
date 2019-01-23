@@ -1,0 +1,19 @@
+#!/bin/bash
+
+. $DOTS/i3/scripts/set-label
+
+# icons from icons-in-terminal
+. $HOME/.local/share/icons-in-terminal/icons_bash.sh
+glyph_memory=`echo -e $fa_microchip`
+
+case $BLOCK_BUTTON in
+  1) $DOTS/i3/scripts/memory-processes
+esac
+
+used_mem=$(free | awk '/^Mem:/ {print int($3 / $2 * 100 + 0.5)}');
+label="$glyph_memory ${used_mem}%"
+set-label "$label" i3.block.fgrnd
+
+if [[ ${used_mem} -gt 90 ]]; then
+  exit 33
+fi

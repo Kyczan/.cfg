@@ -1,0 +1,9 @@
+#!/bin/bash
+
+usb=$(printf "mount\\nunmount" | rofi -dmenu -p "What to do?")
+
+if [[ "${usb}" == "mount" ]]; then
+  $DOTS/i3/scripts/usb-mount
+elif [[ "${usb}" == "unmount" ]]; then
+  $DOTS/i3/scripts/usb-unmount
+fi

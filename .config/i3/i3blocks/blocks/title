@@ -1,0 +1,8 @@
+#!/bin/bash
+
+. $DOTS/i3/scripts/set-label
+
+window_name=`xdotool getactivewindow getwindowname` 
+title=`echo ${window_name} | rev | cut -d "-" -f1 | rev`
+
+set-label "${title}" i3.block.title

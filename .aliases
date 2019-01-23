@@ -1,0 +1,50 @@
+#!/bin/bash
+
+PINK='\033[0;35m'
+NC='\033[0m' # No Color
+
+function print_color () {
+  printf "${PINK}$@\n${NC}"
+}
+
+# git
+alias gs="print_color \"git status\"; git status "
+alias ga="print_color \"git add --all\"; git add --all "
+alias gc="print_color \"git commit -a\"; git commit -a "
+alias gcm="print_color \"git commit -am\"; git commit -am "
+alias gacm="ga; gcm "
+alias gpl="print_color \"git pull\"; git pull"
+alias gf="print_color \"git fetch\"; git fetch"
+alias gp="print_color \"git push\"; git push"
+
+function gacmp () {
+  ga
+
+  print_color "git commit"
+  git commit -am "$@"
+
+  gp
+  gs
+}
+
+#ls
+alias l="exa -la"
+
+# cd
+alias clr="clear"
+alias cdd="cd ~/Projects/dotfiles/ && l"
+alias cdp="cd ~/Projects/ && l"
+
+function cl () {
+  cd "$@" && l
+}
+
+# others
+alias v="vim"
+alias p="pacman"
+alias y="yay"
+alias r="ranger"
+alias rm="rimraf"
+
+# ssh
+alias sshpi="ssh pi@pihole"

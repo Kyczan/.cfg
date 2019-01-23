@@ -1,0 +1,121 @@
+/* ----------------------------------- */
+/* ----------- tab bar --------------- */
+/* ----------------------------------- */
+
+/* tab bar height */
+#header > #tabs-container.top {
+  padding-top: 0;
+}
+
+/* min, max, close */
+#titlebar > .window-buttongroup {
+  display: none;
+}
+
+#header > #tabs-container.top {
+  padding-right: 0;
+}
+
+/* ----------------------------------- */
+/* ---------- speed dial ------------- */
+/* ----------------------------------- */
+
+/* hide search bar */
+.iconmenu-container.searchfield {
+  display: none;
+}
+
+/* ----------------------------------- */
+/* -------- buttons & icons ---------- */
+/* ----------------------------------- */
+
+/* make icons gray */
+/* extensions */
+.toolbar.toolbar-addressbar
+  .extensions-wrapper
+  .button-toolbar.browserAction-button {
+  filter: grayscale(100%) contrast(90%) opacity(90%);
+}
+.toolbar.toolbar-addressbar
+  .extensions-wrapper
+  .button-toolbar.browserAction-button:hover {
+  filter: grayscale(0%) contrast(100%) opacity(100%);
+}
+/* side panel */
+#panels > #switch > .webviewbtn {
+  filter: grayscale(100%) contrast(90%) opacity(90%);
+}
+#panels > #switch > .webviewbtn:hover {
+  filter: grayscale(0%) contrast(100%) opacity(100%);
+}
+
+/* burger menu */
+.vivaldi {
+  height: 30px;
+  padding: 4px 0 0;
+}
+
+/* icons order in adderss bar */
+button.button-toolbar.back {
+  order: 1;
+}
+button.button-toolbar.reload {
+  order: 2;
+}
+button.button-toolbar.forward {
+  order: 3;
+}
+button.button-toolbar.home {
+  order: 4;
+}
+
+/* home button */
+button.button-toolbar.home svg path {
+  d: path(
+    'M 4 6 h 18 v 2.5 h -3.5 v 11.5 h -2.5 v -9.5 h -6 v 9.5 h -2.5 v -11.5 h -3.5 Z'
+  );
+}
+
+/* closed tabs */
+.button-tabbar.toggle-trash svg g path {
+  d: path('M 6 8 h14 v2 h-14 Z M 6 12 h14 v2 h-14 Z M 9 16 h8 v2 h-8 Z');
+}
+.button-tabbar.toggle-trash svg g {
+  transform: translate(0px, 0px) !important;
+}
+
+/* bookmark in addres bar */
+.button-addressfield.bookmark svg path {
+  d: path(
+    'M10.325 0.875c-1.472 0-2.738 1.197-3.325 2.447-0.587-1.25-1.854-2.447-3.325-2.447-2.029 0-3.675 1.647-3.675 3.675 0 4.127 4.163 5.209 7 9.289 2.682-4.055 7-5.294 7-9.289 0-2.029-1.647-3.675-3.675-3.675z'
+  );
+}
+.button-addressfield.bookmark.bookmarked svg .bookmark-outline {
+  fill: rgb(218, 93, 93);
+}
+.button-addressfield.bookmark.bookmarked:hover svg .bookmark-outline {
+  fill: rgb(234, 64, 64);
+}
+
+/* toggle exts icon (icon not available in new version of vivaldi) */
+/* .button-toolbar.toggle-extensions-group svg path {
+  d: path(
+    'M 3.5178639,5.0873842 A 2.0163536,2.0163536 0 0 1 1.5015103,7.1037378 2.0163536,2.0163536 0 0 1 -0.51484333,5.0873842 2.0163536,2.0163536 0 0 1 1.5015103,3.0710306 2.0163536,2.0163536 0 0 1 3.5178639,5.0873842 Z m -1.9029832,10.6174408 4,-6.0000002 h -8 z'
+  );
+} */
+
+/* bookmark in side bar */
+.bookmarks svg path {
+  d: path(
+    'M10.325 0.875c-1.472 0-2.738 1.197-3.325 2.447-0.587-1.25-1.854-2.447-3.325-2.447-2.029 0-3.675 1.647-3.675 3.675 0 4.127 4.163 5.209 7 9.289 2.682-4.055 7-5.294 7-9.289 0-2.029-1.647-3.675-3.675-3.675z'
+  );
+  transform: translate(6px, 8px);
+}
+
+/* notes in side bar */
+.notes svg path/*, .bookmarks.active svg path*/ {
+  d: path(
+    'm23.90625,3.96875c-1.04688,0 -2.09375,0.40625 -2.90625,1.21875l-15.8125,15.8125l-0.0625,0.3125l-1.09375,5.5l-0.3125,1.46875l1.46875,-0.3125l5.5,-1.09375l0.3125,-0.0625l15.8125,-15.8125c1.625,-1.625 1.625,-4.1875 0,-5.8125c-0.8125,-0.8125 -1.85938,-1.21875 -2.90625,-1.21875zm0,1.90625c0.50391,0 1.01172,0.23047 1.5,0.71875c0.97266,0.97266 0.97266,2.02734 0,3l-0.71875,0.6875l-2.96875,-2.96875l0.6875,-0.71875c0.48828,-0.48828 0.99609,-0.71875 1.5,-0.71875zm-3.59375,2.84375l2.96875,2.96875l-12.09375,12.09375c-0.65625,-1.28125 -1.6875,-2.3125 -2.96875,-2.96875l12.09375,-12.09375zm-13.375,13.71875c1.19922,0.48438 2.14063,1.42578 2.625,2.625l-3.28125,0.65625l0.65625,-3.28125z'
+  );
+  transform: scale(0.68, 0.68) translate(3px, 4px);
+}

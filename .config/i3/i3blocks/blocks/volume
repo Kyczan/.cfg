@@ -1,0 +1,29 @@
+#!/bin/bash
+
+. $DOTS/i3/scripts/set-label
+
+# icons from icons-in-terminal
+. $HOME/.local/share/icons-in-terminal/icons_bash.sh
+icon_sound=`echo -e $fa_music`
+icon_mute=`echo -e $oct_mute`
+
+case $BLOCK_BUTTON in
+  3) pactl set-sink-mute @DEFAULT_SINK@ toggle ;;  # right click, mute/unmute
+  5) pactl set-sink-volume @DEFAULT_SINK@ +5% ;; # scroll up, increase
+  4) pactl set-sink-volume @DEFAULT_SINK@ -5% ;; # scroll down, decrease
+esac
+
+statusLine=$(amixer get Master | tail -n 1)
+status=$(echo "${statusLine}" | grep -wo "on")
+volume=$(echo "${statusLine}" | awk -F ' ' '{print $5}' | tr -d '[]%')
+label="${icon_sound} ${volume}%"
+
+if [[ "${status}" == "on" ]]; then
+  set-label "$label" i3.block.fgrnd
+  if [[ ${volume} -gt 100 ]]; then
+    exit 33
+  fi
+else
+  set-label "${icon_mute}" i3.block.fgrnd
+  exit 33
+fi

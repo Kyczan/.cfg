@@ -1,0 +1,18 @@
+#!/bin/bash
+
+OPTIONS=
+URL=
+OUTPUT="-o ~/Videos/%(title)s.%(ext)s";
+
+while [ -n "$1" ]; do
+    case "$1" in
+    -x) 
+      OPTIONS="-x --audio-format mp3" # Save as mp3
+      OUTPUT="-o ~/Music/%(title)s.%(ext)s";
+      ;;
+    *) URL=$1 ;;
+    esac
+    shift
+done
+
+youtube-dl $OUTPUT $OPTIONS $URL;

@@ -1,0 +1,20 @@
+#!/bin/bash
+
+scripts=$HOME/.config/i3/scripts
+locker=$scripts/lockme
+restarti3=$scripts/restart-i3
+opts=$(echo -e "lock\nrestart i3\nlogout\nsuspend\nreboot\nshutdown" | rofi -dmenu -p "Power manager")
+
+if [[ "${opts}" == "lock" ]]; then
+  $locker
+elif [[ "${opts}" == "restart i3" ]]; then
+  $restarti3
+elif [[ "${opts}" == "logout" ]]; then
+  i3-msg exit
+elif [[ "${opts}" == "suspend" ]]; then
+  $locker && systemctl suspend
+elif [[ "${opts}" == "reboot" ]]; then
+  systemctl reboot
+elif [[ "${opts}" == "shutdown" ]]; then
+  systemctl poweroff -i
+fi

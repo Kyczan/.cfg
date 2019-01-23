@@ -1,0 +1,41 @@
+#!/bin/bash
+
+. $DOTS/i3/scripts/get-color
+
+B='#00000000'  # blank
+VI=$(get-color ylw)'22'  # veryfying inside
+WI=$(get-color red)'22'  # wrong inside
+D=$(get-color wht)'FF'  # default
+T=$(get-color wht)'FF'  # text
+W=$(get-color red)'FF'  # wrong
+V=$(get-color ylw)'FF'  # verifying
+H=$(get-color grn)'FF'  # hlring
+
+i3lock \
+--insidevercolor=$VI  \
+--ringvercolor=$V     \
+\
+--insidewrongcolor=$WI \
+--ringwrongcolor=$W   \
+\
+--insidecolor=$B      \
+--ringcolor=$D        \
+--linecolor=$B        \
+--separatorcolor=$D   \
+\
+--verifcolor=$T       \
+--wrongcolor=$T       \
+--timecolor=$T        \
+--datecolor=$T        \
+--layoutcolor=$T      \
+--keyhlcolor=$H       \
+--bshlcolor=$H        \
+\
+--screen 0            \
+--blur 5              \
+--clock               \
+--indicator           \
+--timestr="%H:%M:%S"  \
+--datestr="%A %Y-%m-%d" \
+--veriftext="veryfing" \
+--wrongtext="Wrong"   \

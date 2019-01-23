@@ -1,0 +1,30 @@
+#!/bin/bash
+
+. $DOTS/i3/scripts/set-label
+
+# icons from icons-in-terminal
+. $HOME/.local/share/icons-in-terminal/icons_bash.sh
+glyph_wifi=`echo -e $fa_wifi`
+
+case $BLOCK_BUTTON in
+  1) $DOTS/i3/scripts/run-network
+esac
+
+device="${BLOCK_INSTANCE:-wlan0}"
+status=$(cat /sys/class/net/${device}/operstate)
+
+URGENT_VALUE=20
+
+if [[ "${status}" == "up" ]]; then
+  if [[ -d "/sys/class/net/${device}/wireless" ]]; then
+    quality=$(grep ${device} /proc/net/wireless | awk '{ print int($3 * 100 / 70) }')
+    qual="${quality}%"
+    set-label "$glyph_wifi ${qual:0:3}" i3.block.fgrnd
+
+    if [[ "${quality}" -le "${URGENT_VALUE}" ]]; then
+      exit 33
+    fi
+  else
+    set-label on i3.block.fgrnd
+  fi
+fi

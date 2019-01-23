@@ -1,0 +1,258 @@
+# i3 config file (v4)
+
+# ------------------------------------------------------------
+# --------------------------vars------------------------------
+# ------------------------------------------------------------
+
+set $mod            Mod4
+set $super          bindsym Mod4
+set $exe            exec --no-startup-id
+set $exe_always     exec_always --no-startup-id
+set $i3dir          ~/.config/i3
+
+# set $left           Left
+# set $right          Right
+# set $up             Up
+# set $down           Down
+
+set $left           h
+set $right          l
+set $up             k
+set $down           j
+
+set $workspace1     "1 "
+set $workspace2     "2 "
+set $workspace3     "3 "
+set $workspace4     "4 "
+set $workspace5     "5"
+set $workspace6     "6"
+set $workspace7     "7"
+set $workspace8     "8"
+set $workspace9     "9"
+set $workspace10    "10 "
+
+set_from_resource   $fnt1 i3.fntpri System San Francisco Display
+set_from_resource   $fnt2 i3.fntsec FontAwesome
+set_from_resource   $fntsz i3.fntsz 8
+set_from_resource   $bg i3.bgrnd #282A36    # background
+set_from_resource   $fg i3.fgrnd #FFFFFF    # foreground
+set_from_resource   $in i3.inact #676E7D    # inactive
+set_from_resource   $ur i3.urgen #E53935    # urgent
+set_from_resource   $tr i3.trans FF         # transparency
+
+# ------------------------------------------------------------
+# ----------------------look and feel-------------------------
+# ------------------------------------------------------------
+
+# font
+font pango:$fnt1,$fnt2 $fntsz
+
+# thin borders
+for_window [class="^.*"] border pixel 0
+hide_edge_borders        both
+
+# hides title
+new_window none 
+
+# gaps
+gaps inner 15
+gaps outer 0
+smart_gaps on
+
+# window colors         border bground text indicator
+client.focused          $bg    $bg     $fg  $bg
+client.unfocused        $bg    $bg     $in  $bg
+client.focused_inactive $bg    $bg     $in  $bg
+client.urgent           $ur    $ur     $fg  $ur
+
+# status bar
+bar {
+    status_command  i3blocks -c $i3dir/i3blocks/config
+    i3bar_command   i3bar -t
+    font            pango:$fnt1,$fnt2 $fntsz
+    position        top
+    height          26
+    colors {
+        background  $bg$tr
+        separator   $in
+        #                  border   bground   text
+        focused_workspace  $bg$tr   $bg$tr    $fg
+        inactive_workspace $bg$tr   $bg$tr    $in
+        urgent_workspace   $bg$tr   $bg$tr    $ur
+    }
+}
+
+# ------------------------------------------------------------
+# -----------------------workspaces---------------------------
+# ------------------------------------------------------------ 
+
+# switch to workspace
+$super+1 workspace $workspace1 
+$super+2 workspace $workspace2 
+$super+3 workspace $workspace3 
+$super+4 workspace $workspace4
+$super+5 workspace $workspace5
+$super+6 workspace $workspace6
+$super+7 workspace $workspace7
+$super+8 workspace $workspace8
+$super+9 workspace $workspace9
+$super+0 workspace $workspace10
+
+$super+Tab         workspace next
+$super+Shift+Tab   workspace prev
+
+# move focused container to workspace
+$super+Shift+1 move container to workspace $workspace1
+$super+Shift+2 move container to workspace $workspace2
+$super+Shift+3 move container to workspace $workspace3 
+$super+Shift+4 move container to workspace $workspace4
+$super+Shift+5 move container to workspace $workspace5
+$super+Shift+6 move container to workspace $workspace6
+$super+Shift+7 move container to workspace $workspace7
+$super+Shift+8 move container to workspace $workspace8
+$super+Shift+9 move container to workspace $workspace9
+$super+Shift+0 move container to workspace $workspace10
+
+# open some apps on specified workspaces
+for_window [class="Vivaldi"]    move to workspace $workspace1
+for_window [class="code"]       move to workspace $workspace3 focus
+for_window [class="Spotify"]    move to workspace $workspace10
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+    bindsym $left  resize shrink width  10 px or 10 ppt
+    bindsym $down  resize grow   height 10 px or 10 ppt
+    bindsym $up    resize shrink height 10 px or 10 ppt
+    bindsym $right resize grow   width  10 px or 10 ppt
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+$super+r mode "resize"
+
+# ------------------------------------------------------------
+# ------------------session and power control-----------------
+# ------------------------------------------------------------
+
+# reload the configuration file
+$super+Shift+c reload
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+$super+Shift+r $exe $i3dir/scripts/restart-i3
+
+# reboot, shutdown, suspend, lock system
+$super+p $exe $i3dir/scripts/power-manager
+
+# ------------------------------------------------------------
+# ----------------------key bindings--------------------------
+# ------------------------------------------------------------
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# start a terminal
+$super+Return $exe st
+
+# start app menu
+$super+d $exe rofi -modi 'drun#window#run' -show drun
+
+# kill focused window
+$super+q kill
+
+# change focus
+$super+$left    focus left
+$super+$down    focus down
+$super+$up      focus up
+$super+$right   focus right
+
+# move focused window
+$super+Shift+$left      move left
+$super+Shift+$down      move down
+$super+Shift+$up        move up
+$super+Shift+$right     move right
+
+# split in horizontal orientation
+$super+Shift+v split h
+
+# split in vertical orientation
+$super+v split v
+
+# enter fullscreen mode for the focused container
+$super+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+$super+s layout stacking
+$super+w layout tabbed
+$super+e layout toggle split
+
+# toggle tiling / floating
+$super+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+$super+space focus mode_toggle
+
+# focus the parent container
+$super+a focus parent
+
+# focus the child container
+$super+Shift+a focus child
+
+# run updates
+$super+u $exe $i3dir/scripts/run-updates
+
+# run network applet
+$super+n $exe $i3dir/scripts/run-network
+
+# mount / unmount usb drive
+$super+m $exe $i3dir/scripts/run-usb
+
+# search for icons
+$super+i $exe $i3dir/scripts/icons-finder
+
+# save screenshot
+$super+Print $exe scrot '%Y-%m-%d-%T_$wx$h_scrot.png' -e 'mv $f ~/Pictures/screenshots/'
+
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume    $exe pactl set-sink-volume  @DEFAULT_SINK@ +5% #increase sound volume
+bindsym XF86AudioLowerVolume    $exe pactl set-sink-volume  @DEFAULT_SINK@ -5% #decrease sound volume
+bindsym XF86AudioMute           $exe pactl set-sink-mute    @DEFAULT_SINK@ toggle # mute sound
+
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp     $exe xbacklight -inc 20 # increase screen brightness
+bindsym XF86MonBrightnessDown   $exe xbacklight -dec 20 # decrease screen brightness
+
+# Media player controls
+bindsym XF86AudioPlay   $exe playerctl play-pause
+bindsym XF86AudioPause  $exe playerctl play-pause
+bindsym XF86AudioNext   $exe playerctl next
+bindsym XF86AudioPrev   $exe playerctl previous
+
+# toggle touchpad
+bindsym XF86TouchpadToggle $exe $i3dir/scripts/touchpad-toggle
+
+# sending signal to i3blocks
+bindsym --release Num_Lock              $exe pkill -SIGRTMIN+11 i3blocks
+bindsym --release XF86AudioRaiseVolume  $exe pkill -SIGRTMIN+10 i3blocks
+bindsym --release XF86AudioLowerVolume  $exe pkill -SIGRTMIN+10 i3blocks
+bindsym --release XF86AudioMute         $exe pkill -SIGRTMIN+10 i3blocks
+
+# ------------------------------------------------------------
+# -----------------------autostarts---------------------------
+# ------------------------------------------------------------
+
+# run on every config reload
+$exe_always compton -f # for nice transitions
+$exe_always pkill -SIGRTMIN+11 i3blocks # send numlock signal to i3blocks
+$exe_always pkill -SIGRTMIN+10 i3blocks # send volume signal to i3blocks
+$exe_always feh --bg-scale ~/Pictures/wallpaper.png # set wallpaper
+$exe_always dunst -config ~/.config/dunst/dunstrc
+
+# run on i3 startup
+# $exe compton -b --config $i3dir/compton/compton.conf
+$exe vivaldi-stable
+$exe synclient VertScrollDelta=-114 # enable natural vertical scroling
+$exe synclient HorizTwoFingerScroll=1 # enable natural horizontal scroling
+$exe synclient HorizScrollDelta=-114 # enable natural horizontal scroling
+$exe synclient TapButton1=1 # enable touchpad tapping
+$exe xss-lock -- $i3dir/scripts/lockme # lock screen on suspend
