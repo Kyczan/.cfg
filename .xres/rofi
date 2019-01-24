@@ -4,7 +4,7 @@
 rofi.color-enabled:     true
 
 !                       bg       border  separator
-rofi.color-window:      bg,      mag,    mag
+rofi.color-window:      bg,      blu2,    blu2
 
 !                       bg       fg      bg-alt      hl-bg       hl-fg
 rofi.color-normal:      bg,      fg,     bg,         blu,        blk
