@@ -51,3 +51,17 @@ alias sshpi="ssh pi@pihole"
 
 # git alias for dotfiles bare git repo
 alias config='/usr/bin/git --git-dir=/home/kowal/.cfg/ --work-tree=/home/kowal'
+
+# config
+alias cgs="print_color \"config status\"; config status "
+alias cga="print_color \"config add -u\"; config add -u "
+alias cgacm="print_color \"config commit -am\"; config commit -am "
+alias cgpl="print_color \"config pull\"; config pull"
+alias cgf="print_color \"config fetch\"; config fetch"
+alias cgp="print_color \"config push\"; config push"
+
+function cgacmp () {
+  cgacm "$@"
+  cgp
+  cgs
+}
