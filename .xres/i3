@@ -1,15 +1,15 @@
 !! i3
 i3.bgrnd:           bg
-i3.fgrnd:           mag
-i3.inact:           blu2
-i3.urgen:           red
+i3.fgrnd:           blu2
+i3.inact:           blk2
+i3.urgen:           mag
 i3.fntpri:          fnt1
 i3.fntsz:           fsz1
 i3.fntsec:          fnt2
-i3.trans:           CC
+i3.trans:           00
 
 !! i3 block
-i3.block.fgrnd:     cyn
+i3.block.fgrnd:     blk2
 i3.block.inact:     blu2
 i3.block.title:     fg
 

@@ -11,7 +11,6 @@ battery_info=$(acpi -b | grep "Battery ${BLOCK_INSTANCE}")
 battery_state=$(echo "${battery_info}" | grep -wo "Full\|Charging\|Discharging")
 battery_power=$(echo "${battery_info}" | grep -o '[0-9]\+%' | tr -d '%')
 label="$glyph_power ${battery_power}%"
-urgent_value=5
 cache_full=~/.cache/i3blocks/battery_full
 cache_low=~/.cache/i3blocks/battery_low
 icon=$HOME/.config/dunst/icons/battery.png
@@ -38,26 +37,15 @@ if [[ "${battery_state}" = "Discharging" ]]; then
 		rm $cache_full
 	fi
 
-  if [[ "${battery_power}" -lt "20" ]]; then 
-		set-label "$label" i3.block.batt.5
+	set-label "$label" i3.block.fgrnd
 
+  if [[ "${battery_power}" -lt "30" ]]; then 
+		
 		if [ ! -f $cache_low ]; then
 			notify-send "Battery" "Battery is low." -i $icon -u CRITICAL
 			touch $cache_low
 		fi
 
-	elif [[ "${battery_power}" -lt "40" ]]; then
-		set-label "$label" i3.block.batt.4
-	elif [[ "${battery_power}" -lt "60" ]]; then
-		set-label "$label" i3.block.batt.3
-	elif [[ "${battery_power}" -lt "85" ]]; then
-		set-label "$label" i3.block.batt.2
-	elif [[ "${battery_power}" -ge "85" ]]; then
-		set-label "$label" i3.block.batt.1
-	fi
-
-  if [[ "${battery_power}" -le "${urgent_value}" ]]; then
     exit 33
-  fi
-
+	fi
 fi

@@ -4,7 +4,7 @@
 command=$HOME/.config/i3/i3blocks/blocks/$BLOCK_NAME
 separator=false
 separator_block_width=20
-markup=none
+markup=pango
 
 # [title]
 # interval=1

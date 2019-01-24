@@ -71,7 +71,7 @@ bar {
     i3bar_command   i3bar -t
     font            pango:$fnt1,$fnt2 $fntsz
     position        top
-    height          26
+    height          28
     colors {
         background  $bg$tr
         separator   $in

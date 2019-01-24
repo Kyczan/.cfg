@@ -3,7 +3,7 @@
 . $HOME/.config/i3/scripts/get-color
 
 function set-label () {
-  echo "${1}"
-  echo "${1}"
-  echo "$(get-color ${2})"
+  echo ${1}
+  echo ${1}
+  echo $(get-color ${2})
 }

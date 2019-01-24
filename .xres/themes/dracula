@@ -3,7 +3,7 @@
 #define fg                 #F8F8F2
 
 #define blk                #000000
-#define blk2               #4D4D4D
+#define blk2               #696969
 #define red                #FF5555
 #define red2               #FF6E67
 #define grn                #50FA7B

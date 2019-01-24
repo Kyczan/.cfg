@@ -113,7 +113,3 @@ $glyph_daytime   $(date '+%H:%M' --date=@${daytime} -u)"`
 case $BLOCK_BUTTON in
   1) display-weather-details
 esac
-
-if [[ "${temp}" -lt "${urgent_low}" ]] || [[ "${temp}" -gt "${urgent_high}" ]]; then
-  exit 33
-fi
