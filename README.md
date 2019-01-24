@@ -36,7 +36,6 @@ For reference to learn about bare git repo dotfiles see this [article](https://d
   - [.xintrc](#xintrc)
   - [.Xresources](#xresources)
 - [dunst](#dunst)
-- [ranger](#ranger)
 
 ## installation
 
@@ -74,7 +73,6 @@ To get i3 looking like in pictures you have to install some programs. `.setup/in
 - `numlockx` (for turning on numlock on start)
 - `playerctl` (for audio control)
 - `pulseaudio` (for audio control)
-- `ranger` `w3m` (console based file manager)
 - `rofi` (for searching and launching apps)
 - `ruby` (for travis CLI `gem install travis -v 1.8.9 --no-rdoc --no-ri`)
 - `scrot` (for making screenshots; also create directory `~/Pictures/screenshots`)
@@ -252,7 +250,3 @@ Defines theme for system. Loads params from `.xres` folder.
 ## dunst
 
 Shows notifications.
-
-## ranger
-
-Terminal based file manager.
