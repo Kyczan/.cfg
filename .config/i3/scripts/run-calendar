@@ -6,7 +6,7 @@
 icon=$HOME/.config/dunst/icons/calendar.png
 today=`date '+%e'`
 fg=`get-color i3.bgrnd`
-bg=`get-color cyn`
+bg=`get-color wht`
 calendar=`set-font "$(cal -m)"`
 
 # replace today with colored today
