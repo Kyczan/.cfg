@@ -6,5 +6,5 @@
 . $HOME/.local/share/icons-in-terminal/icons_bash.sh
 glyph_time=`echo -e $md_access_time`
 
-label="$glyph_time $(date '+%H:%M')"
+label="$glyph_time $(date '+%H:%M')<span> </span>"
 set-label "$label" i3.block.fgrnd

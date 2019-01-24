@@ -8,7 +8,7 @@ glyph_update=`echo -e $fa_arrow_circle_up`
 
 urgent_value=5
 package_count=$(/usr/bin/checkupdates | wc -l)
-label="$glyph_update ${package_count}"
+label="$glyph_update ${package_count}<span> </span>"
 
 # update on left click
 case $BLOCK_BUTTON in
