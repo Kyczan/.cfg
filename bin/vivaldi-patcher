@@ -11,7 +11,7 @@ if [ $UID != 0 ] ; then
     exit 255
 fi
 
-mod_dir=$HOME/Projects/dotfiles/vivaldi
+mod_dir=$HOME/.setup/vivaldi
 if [ ! "$1" = "" ] ; then
     mod_dir=$1
 fi
