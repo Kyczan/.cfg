@@ -16,6 +16,52 @@
   padding-right: 0;
 }
 
+/**[Auto hide address bar]**/
+
+.toolbar-addressbar {
+  visibility: hidden;
+  position: fixed;
+  width: 100%;
+  opacity: 0;
+  z-index: 2;
+  transition: opacity 0.2s linear 0.1s, visibility 0s linear 1s;
+}
+
+/**[Reveal on hover]**/
+
+#header:hover ~ #main .toolbar-addressbar,
+.toolbar-addressbar:hover {
+  visibility: visible;
+  opacity: 1;
+  transition-delay: 0s;
+}
+
+/**[Toolbar button hover colour]**/
+
+.button-toolbar.back:hover,
+.button-toolbar.forward:hover,
+.button-toolbar.next:hover,
+.button-toolbar.rewind:hover,
+.button-toolbar.reload:hover,
+.button-toolbar.home:hover,
+#tabs-container .trash {
+  -webkit-filter: sepia(0%) hue-rotate(0deg) saturate(0) brightness(70%)
+    opacity(10%) !important;
+}
+
+/**[Toolbar button colour]**/
+
+.button-toolbar.back,
+.button-toolbar.forward,
+.button-toolbar.next,
+.button-toolbar.rewind,
+.button-toolbar.reload,
+.button-toolbar.home,
+#tabs-container .trash {
+  -webkit-filter: sepia(0%) hue-rotate(0deg) saturate(0) brightness(70%)
+    opacity(60%) !important;
+}
+
 /* ----------------------------------- */
 /* ---------- speed dial ------------- */
 /* ----------------------------------- */
