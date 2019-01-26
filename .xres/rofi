@@ -3,24 +3,24 @@
 ! Enable the extended coloring options
 rofi.color-enabled:     true
 
-!                       bg       border  separator
-rofi.color-window:      bg,      blu2,    blu2
+!                       bg          border    separator
+rofi.color-window:      #dd282A36,  blu2,     blu2
 
-!                       bg       fg      bg-alt      hl-bg       hl-fg
-rofi.color-normal:      bg,      fg,     bg,         blu,        blk
-rofi.color-active:      grn,     blk,    grn,        grn,        blk2
-rofi.color-urgent:      red,     fg,     red,        red,        wht
+!                       bg          fg        bg-alt      hl-bg       hl-fg
+rofi.color-normal:      #00000000,  fg,       #00000000,  blu,        blk
+rofi.color-active:      grn,        blk,      grn,        grn,        blk2
+rofi.color-urgent:      red,        fg,       red,        red,        wht
 
 rofi.separator-style:   none
 rofi.sidebar-mode:      false
-rofi.bw:                1
-rofi.columns:           1
-rofi.padding:           10
-rofi.scrollbar-width:   3
+rofi.bw:                0
+rofi.columns:           4
+rofi.padding:           5
+rofi.scrollbar-width:   0
 rofi.yoffset:           0
-rofi.fake-transparency: false
-rofi.location:          0
-rofi.width:             50
-rofi.font:              fnt1 11
-rofi.lines:             15
-rofi.fixed-num-lines:   true
+rofi.fake-transparency: true
+rofi.location:          1
+rofi.width:             100
+rofi.font:              fnt3 10
+rofi.lines:             5
+rofi.fixed-num-lines:   false
