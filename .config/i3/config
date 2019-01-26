@@ -210,6 +210,9 @@ $super+m $exe $i3dir/scripts/run-usb
 # search for icons
 $super+i $exe $i3dir/scripts/icons-finder
 
+# show calculator
+$super+c $exe rofi -show calc -modi "calc:qalc +u8 -nocurrencies"
+
 # save screenshot
 $super+Print $exe scrot '%Y-%m-%d-%T_$wx$h_scrot.png' -e 'mv $f ~/Pictures/screenshots/'
 

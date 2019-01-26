@@ -68,6 +68,7 @@ To get i3 looking like in pictures you have to install some programs. `.setup/in
 - `exa` for colored `ls` output
 - `feh` (for setting wallpaper; put wallpaper to `~/Pictures/wallpaper.jpg`)
 - `i3blocks` (for bar with custom informations)
+- `libqalculate` (terminal calculator)
 - `lxappearance` (for changing system font and theme; change font in `~/.gtkrc-2.0` and in `~/.config/gtk-3.0/settings.ini`)
 - `nodejs`
 - `numlockx` (for turning on numlock on start)
@@ -141,6 +142,7 @@ gpg --recv-keys 5CC908FDB71E12C2
 - `super + u` - check and run updates
 - `super + n` - run network applet
 - `super + i` - search for icons. Selected icon is copied to clipboard
+- `super + c` - runs rofi like calculator using qcalc
 
   ![usb](./.setup/scrots/icons.png)
 
