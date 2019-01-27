@@ -72,6 +72,7 @@ To get i3 looking like in pictures you have to install some programs. `.setup/in
 - `lxappearance` (for changing system font and theme; change font in `~/.gtkrc-2.0` and in `~/.config/gtk-3.0/settings.ini`)
 - `nodejs`
 - `numlockx` (for turning on numlock on start)
+- `perl-anyevent perl-anyevent-i3`
 - `playerctl` (for audio control)
 - `pulseaudio` (for audio control)
 - `rofi` (for searching and launching apps)

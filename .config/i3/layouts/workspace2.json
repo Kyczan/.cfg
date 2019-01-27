@@ -1,0 +1,50 @@
+{
+    "border": "pixel",
+    "current_border_width": 0,
+    "floating": "auto_off",
+    "name": "st",
+    "percent": 0.5,
+    "swallows": [
+       {
+         "class": "^st\\-256color$"
+       }
+    ],
+    "type": "con"
+}
+
+{
+    "border": "none",
+    "floating": "auto_off",
+    "layout": "splitv",
+    "percent": 0.5,
+    "type": "con",
+    "nodes": [
+        {
+            "border": "pixel",
+            "current_border_width": 0,
+            "floating": "auto_off",
+            "name": "st",
+            "percent": 0.5,
+            "swallows": [
+               {
+                "class": "^st\\-256color$"
+               }
+            ],
+            "type": "con"
+        },
+        {
+            "border": "pixel",
+            "current_border_width": 0,
+            "floating": "auto_off",
+            "name": "st",
+            "percent": 0.5,
+            "swallows": [
+               {
+                "class": "^st\\-256color$"
+               }
+            ],
+            "type": "con"
+        }
+    ]
+}
+
