@@ -7,6 +7,10 @@ Instead of creating dotfiles folder and symlink files to home directory - this p
 For reference to learn about bare git repo dotfiles see this [article](https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/).
 
 ![My desktop](./.setup/scrots/desktop.png)
+![Rofi in dmenu mode](./.setup/scrots/rofi.png)
+![Notification](./.setup/scrots/dunst.png)
+
+Wallpaper is located in `.setup/scrots/wallpapers/`
 
 ## TOC <!-- omit in toc -->
 
@@ -72,7 +76,7 @@ To get i3 looking like in pictures you have to install some programs. `.setup/in
 - `lxappearance` (for changing system font and theme; change font in `~/.gtkrc-2.0` and in `~/.config/gtk-3.0/settings.ini`)
 - `nodejs`
 - `numlockx` (for turning on numlock on start)
-- `perl-anyevent perl-anyevent-i3`
+- `perl-anyevent perl-anyevent-i3` (for creating i3 [layouts](https://i3wm.org/docs/layout-saving.html))
 - `playerctl` (for audio control)
 - `pulseaudio` (for audio control)
 - `rofi` (for searching and launching apps)
@@ -85,7 +89,7 @@ To get i3 looking like in pictures you have to install some programs. `.setup/in
 
 ### from sources
 
-- `st` (simple terminal - [installation instructions](https://github.com/Kyczan/st))
+- `st` (simple terminal patched by me - [installation instructions](https://github.com/Kyczan/st))
 - `yay` ([installation instructions](https://computingforgeeks.com/yay-best-aur-helper-for-arch-linux-manjaro/); for installing AUR packages)
 
 ### AUR
@@ -120,14 +124,14 @@ gpg --recv-keys 5CC908FDB71E12C2
 - `super + r` - enter resize mode (allows to resize windows by directions keys)
 - `super + shift + c` - reload i3 configuration file
 - `super + shift + r` - restart i3 inplace, reloads profile files
-- `super + p` - open modal window that allows to lock, restart, shutdown, reboot system or restarts i3
+- `super + p` - open rofi in dmenu mode that allows to lock, restart, shutdown, reboot system or restarts i3
 
   ![power](./.setup/scrots/power.png)
 
 - `super + enter` - open terminal
 - `super + d` - open list of apps
 
-  ![rofi](./.setup/scrots/rofi.png)
+  ![apps](./.setup/scrots/apps.png)
 
 - `super + q` - kill active window
 - `super + h|j|k|l` - change focus to next window
@@ -143,9 +147,11 @@ gpg --recv-keys 5CC908FDB71E12C2
 - `super + u` - check and run updates
 - `super + n` - run network applet
 - `super + i` - search for icons. Selected icon is copied to clipboard
-- `super + c` - runs rofi like calculator using qcalc
 
-  ![usb](./.setup/scrots/icons.png)
+  ![icons](./.setup/scrots/icons.png)
+
+- `super + c` - runs rofi like calculator using qcalc
+- ![calc](./.setup/scrots/calc.png)
 
 - `super + m` - mount / unmount usb drive
 
@@ -177,7 +183,7 @@ Shows actual date. When clicked - shows calendar.
 
 ### keyindicator
 
-Shows info if numlock, capslock or scrolllock is enabled.
+Shows info if numlock, capslock or scrolllock is enabled. (block is disabled by default)
 
 ### memory
 
@@ -199,7 +205,7 @@ Shows actual time
 
 ### title
 
-Shows title of actual focused window, Displays it in the center of the status bar.
+Shows title of actual focused window, Displays it in the center of the status bar. (block is disabled by default)
 
 ### volume
 
