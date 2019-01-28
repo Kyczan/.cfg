@@ -167,7 +167,9 @@ Block definitions are located in `./.config/i3/i3blocks/blocks`
 
 ### battery
 
-Shows actual state of battery. Changes color accordingly to battery level. Also notifies (via dunst) when is fully charged or when battery level is low.
+Shows actual state of battery. Notifies (via dunst) when is fully charged or when battery level is low.
+
+![battery](./.setup/scrots/battery.png)
 
 ### cpu
 
