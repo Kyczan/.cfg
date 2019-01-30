@@ -28,7 +28,7 @@ set $workspace5     "5 "
 set $workspace6     "6 "
 set $workspace7     "7"
 set $workspace8     "8"
-set $workspace9     "9"
+set $workspace9     "9 "
 set $workspace10    "10 "
 
 set_from_resource   $fnt1 i3.fntpri System San Francisco Display
@@ -114,7 +114,7 @@ $super+Shift+9 move container to workspace $workspace9
 $super+Shift+0 move container to workspace $workspace10
 
 # open some apps on specified workspaces
-for_window [class="Vivaldi"]    move to workspace $workspace1 focus
+# for_window [class="Vivaldi"]    move to workspace $workspace1 focus
 for_window [class="code"]       move to workspace $workspace3 focus
 for_window [class="Spotify"]    move to workspace $workspace10
 
@@ -253,8 +253,9 @@ $exe_always dunst -config ~/.config/dunst/dunstrc
 
 # run on i3 startup
 # $exe compton -b --config $i3dir/compton/compton.conf
-$exe vivaldi-stable
-$exe $i3dir/layouts/workspace2 # place 3 st terminals in workspace 2
+$exe $i3dir/layouts/terminals # place 3 st terminals in workspace 2
+$exe $i3dir/layouts/chats # place 3 messengers in workspace 9
+$exe $i3dir/layouts/browser # open browser in workspace 1
 $exe synclient VertScrollDelta=-114 # enable natural vertical scroling
 $exe synclient HorizTwoFingerScroll=1 # enable natural horizontal scroling
 $exe synclient HorizScrollDelta=-114 # enable natural horizontal scroling

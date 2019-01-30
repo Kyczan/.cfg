@@ -1,0 +1,52 @@
+{
+    "border": "pixel",
+    "current_border_width": 0,
+    "floating": "auto_off",
+    "name": "Whatsapp",
+    "percent": 0.5,
+    "swallows": [
+       {
+         "name": "WhatsApp",
+         "class": "^Vivaldi-stable$"
+       }
+    ],
+    "type": "con"
+}
+
+{
+    "border": "none",
+    "floating": "auto_off",
+    "layout": "splitv",
+    "percent": 0.5,
+    "type": "con",
+    "nodes": [
+        {
+            "border": "pixel",
+            "current_border_width": 0,
+            "floating": "auto_off",
+            "name": "Messenger",
+            "percent": 0.5,
+            "swallows": [
+               {
+                "name": "Messenger",
+                "class": "^Vivaldi-stable$"
+               }
+            ],
+            "type": "con"
+        },
+        {
+            "border": "pixel",
+            "current_border_width": 0,
+            "floating": "auto_off",
+            "name": "Signal",
+            "percent": 0.5,
+            "swallows": [
+               {
+                "class": "^Signal$"
+               }
+            ],
+            "type": "con"
+        }
+    ]
+}
+

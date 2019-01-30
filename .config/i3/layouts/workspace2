@@ -1,7 +1,0 @@
-#!/bin/bash
-
-ws=$(cat $HOME/.config/i3/config | grep "set \$workspace2" | grep -oP '"\K[^"\047]+(?=["\047])');
-i3-msg "workspace $ws; append_layout $HOME/.config/i3/layouts/workspace2.json" &&
-st &
-st &
-st &

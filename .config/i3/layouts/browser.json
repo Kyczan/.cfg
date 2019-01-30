@@ -1,0 +1,13 @@
+{
+  "border": "pixel",
+  "current_border_width": 0,
+  "floating": "auto_off",
+  "name": "Vivaldi",
+  "percent": 1,
+  "swallows": [
+    {
+      "class": "^Vivaldi-stable$"
+    }
+  ],
+  "type": "con"
+}
