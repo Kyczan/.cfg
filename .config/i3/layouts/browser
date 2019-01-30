@@ -1,5 +1,5 @@
 #!/bin/bash
 
 ws=$(cat $HOME/.config/i3/config | grep "set \$workspace1" | grep -oP '"\K[^"\047]+(?=["\047])' | head -1);
-i3-msg "workspace $ws; append_layout $HOME/.config/i3/layouts/browser.json" &&
+i3-msg "workspace $ws; append_layout $HOME/.config/i3/layouts/browser.json"
 vivaldi-stable &

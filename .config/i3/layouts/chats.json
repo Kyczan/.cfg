@@ -6,7 +6,6 @@
     "percent": 0.5,
     "swallows": [
        {
-         "name": "WhatsApp",
          "class": "^Vivaldi-stable$"
        }
     ],
@@ -28,7 +27,6 @@
             "percent": 0.5,
             "swallows": [
                {
-                "name": "Messenger",
                 "class": "^Vivaldi-stable$"
                }
             ],
