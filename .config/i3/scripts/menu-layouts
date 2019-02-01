@@ -1,0 +1,11 @@
+#!/bin/bash
+
+layouts_dir=$HOME/.config/i3/layouts
+
+layout=`printf "chats\nterminals" | rofi -dmenu -p "Choose layout"`
+
+if [[ $layout == "chats" ]]; then
+  $layouts_dir/chats
+elif [[ $layout == "terminals" ]]; then
+  $layouts_dir/terminals
+fi
