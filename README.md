@@ -133,6 +133,7 @@ gpg --recv-keys 5CC908FDB71E12C2
 
   ![apps](./.setup/scrots/apps.png)
 
+- `super + shift + d` - open list of layouts
 - `super + q` - kill active window
 - `super + h|j|k|l` - change focus to next window
 - `super + shift + h|j|k|l` - move focused window
