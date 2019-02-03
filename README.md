@@ -133,7 +133,10 @@ gpg --recv-keys 5CC908FDB71E12C2
 
   ![apps](./.setup/scrots/apps.png)
 
-- `super + shift + d` - open list of layouts
+- `super + shift + d` - open list of layouts. Selected layout (e.g. terminals) opens windows placeholders in specified workspace and in specified configuration and runs desired programs that are swallowed by these placeholders. See this [article](https://i3wm.org/docs/layout-saving.html) for reference.
+
+  ![apps](./.setup/scrots/layouts.png)
+
 - `super + q` - kill active window
 - `super + h|j|k|l` - change focus to next window
 - `super + shift + h|j|k|l` - move focused window
@@ -152,7 +155,8 @@ gpg --recv-keys 5CC908FDB71E12C2
   ![icons](./.setup/scrots/icons.png)
 
 - `super + c` - runs rofi like calculator using qcalc
-- ![calc](./.setup/scrots/calc.png)
+
+  ![calc](./.setup/scrots/calc.png)
 
 - `super + m` - mount / unmount usb drive
 
