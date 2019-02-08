@@ -7,7 +7,7 @@
 glyph_memory=`echo -e $fa_microchip`
 
 case $BLOCK_BUTTON in
-  1) $HOME/.config/i3/scripts/memory-processes
+  1) $HOME/.config/i3/scripts/dunst-memory
 esac
 
 used_mem=$(free | awk '/^Mem:/ {print int($3 / $2 * 100 + 0.5)}');

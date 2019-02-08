@@ -7,7 +7,7 @@
 glyph_cpu=`echo -e $oct_flame`
 
 case $BLOCK_BUTTON in
-  1) $HOME/.config/i3/scripts/cpu-processes
+  1) $HOME/.config/i3/scripts/dunst-cpu
 esac
 
 used_cpu_arr=($(mpstat 2 1 -P ALL | awk '$1 ~ /Average/ && $2 ~ /[0-9]+/ {print int(100 - $12 + 0.5)}'));

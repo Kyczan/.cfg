@@ -10,5 +10,5 @@ label="$glyph_date$(date '+ %a  %Y-%m-%d')"
 set-label "$label" i3.block.fgrnd
 
 case $BLOCK_BUTTON in
-  1) $HOME/.config/i3/scripts/run-calendar
+  1) $HOME/.config/i3/scripts/dunst-date
 esac

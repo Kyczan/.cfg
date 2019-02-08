@@ -142,7 +142,7 @@ $super+Shift+c reload
 $super+Shift+r $exe $i3dir/scripts/restart-i3
 
 # reboot, shutdown, suspend, lock system
-$super+p $exe $i3dir/scripts/power-manager
+$super+p $exe $i3dir/scripts/dmenu-power
 
 # ------------------------------------------------------------
 # ----------------------key bindings--------------------------
@@ -158,7 +158,7 @@ $super+Return $exe st
 $super+d $exe rofi -modi 'drun#window#run' -show drun
 
 # run menu with layouts
-$super+Shift+d $exe $i3dir/scripts/menu-layouts
+$super+Shift+d $exe $i3dir/scripts/dmenu-layouts
 
 # kill focused window
 $super+q kill
@@ -208,10 +208,10 @@ $super+u $exe $i3dir/scripts/run-updates
 $super+n $exe $i3dir/scripts/run-network
 
 # mount / unmount usb drive
-$super+m $exe $i3dir/scripts/run-usb
+$super+m $exe $i3dir/scripts/dmenu-usb
 
 # search for icons
-$super+i $exe $i3dir/scripts/icons-finder
+$super+i $exe $i3dir/scripts/dmenu-icons
 
 # show calculator
 $super+c $exe rofi -show calc -modi "calc:qalc +u8 -nocurrencies"
