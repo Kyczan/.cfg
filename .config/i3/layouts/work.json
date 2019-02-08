@@ -1,0 +1,13 @@
+{
+  "border": "pixel",
+  "current_border_width": 0,
+  "floating": "auto_off",
+  "name": "Citrix Workspace",
+  "percent": 1,
+  "swallows": [
+    {
+      "class": "^Google-chrome$"
+    }
+  ],
+  "type": "con"
+}
