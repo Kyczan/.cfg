@@ -1,8 +1,8 @@
 #!/bin/bash
 
 layouts_dir=$HOME/.config/i3/layouts
-
-layout=`printf "chats\nterminals\nwork" | rofi -dmenu -p "Choose layout"`
+layouts_list=`cd $layouts_dir && ls | grep -v .json`
+layout=`printf "${layouts_list}" | rofi -dmenu -p "Choose layout"`
 
 if [[ $layout != "" ]]; then
   $layouts_dir/$layout
