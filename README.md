@@ -36,6 +36,7 @@ Wallpaper is located in `.setup/scrots/wallpapers/`
   - [.aliases](#aliases)
   - [.bash_profile](#bash_profile)
   - [.bashrc](#bashrc)
+  - [.inputrc](#inputrc)
   - [.vimrc](#vimrc)
   - [.xintrc](#xintrc)
   - [.Xresources](#xresources)
@@ -243,6 +244,10 @@ Runs once on logon.
 Runs every time when bash starts (new terminal window is spawn). Loads aliases and creates custom prompt line:
 
 ![prompt](./.setup/scrots/prompt.png)
+
+### .inputrc
+
+This file defines how bash should work. Instead of using Emacs shortcuts it uses vim keys to navigate through bash prompt. Default there is enabled `insert` mode. To switch to `command` mode use `Esc` key. To distinguish modes there are two types of cursor. For `insert` mode bar/pipe `|` and for `command` mode block `█`
 
 ### .vimrc
 
