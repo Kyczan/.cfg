@@ -6,7 +6,7 @@
     "percent": 0.5,
     "swallows": [
        {
-         "class": "^st\\-256color$"
+         "class": "^st\\-left$"
        }
     ],
     "type": "con"
@@ -27,7 +27,7 @@
             "percent": 0.5,
             "swallows": [
                {
-                "class": "^st\\-256color$"
+                "class": "^st\\-rightup$"
                }
             ],
             "type": "con"
@@ -40,7 +40,7 @@
             "percent": 0.5,
             "swallows": [
                {
-                "class": "^st\\-256color$"
+                "class": "^st\\-rightdown$"
                }
             ],
             "type": "con"

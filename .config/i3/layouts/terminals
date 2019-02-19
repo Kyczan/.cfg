@@ -2,6 +2,7 @@
 
 ws=$(cat $HOME/.config/i3/config | grep "set \$workspace2" | grep -oP '"\K[^"\047]+(?=["\047])' | head -1);
 i3-msg "workspace $ws; append_layout $HOME/.config/i3/layouts/terminals.json"
-st &
-st &
-st &
+st -c st-rightup &
+st -c st-rightdown &
+sleep 0.1
+st -c st-left &
