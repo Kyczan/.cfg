@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # install lot of apps
-sudo pacman -S --needed --noconfirm curl gvim rofi i3blocks feh lxappearance pulseaudio playerctl compton acpi scrot numlockx vivaldi bat exa sysstat dunst youtube-dl nodejs xclip ruby libqalculate perl-anyevent perl-anyevent-i3
+sudo pacman -S --needed --noconfirm curl gvim rofi i3blocks feh lxappearance pulseaudio playerctl compton acpi scrot numlockx vivaldi bat exa sysstat dunst youtube-dl nodejs xclip ruby libqalculate perl-anyevent perl-anyevent-i3 surf
 
 # install yay
 cd ~

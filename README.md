@@ -83,6 +83,7 @@ To get i3 looking like in pictures you have to install some programs. `.setup/in
 - `rofi` (for searching and launching apps)
 - `ruby` (for travis CLI `gem install travis -v 1.8.9 --no-rdoc --no-ri`)
 - `scrot` (for making screenshots; also create directory `~/Pictures/screenshots`)
+- `surf` (lightweight browser)
 - `sysstat` (to get CPU load)
 - `vivaldi` (To use Netflix install from AUR `vivaldi-widevine` and `vivaldi-ffmpeg-codecs`)
 - `xclip` (to manage clipboard)
