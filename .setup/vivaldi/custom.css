@@ -19,21 +19,22 @@
 /**[Auto hide address bar]**/
 
 .toolbar-addressbar {
-  visibility: hidden;
+  height: 0;
+  overflow: hidden;
   position: fixed;
   width: 100%;
   opacity: 0;
   z-index: 2;
-  transition: opacity 0.2s linear 0.1s, visibility 0s linear 1s;
+  transition: height 0ms 400ms, opacity 400ms 0ms;
 }
 
 /**[Reveal on hover]**/
 
 #header:hover ~ #main .toolbar-addressbar,
 .toolbar-addressbar:hover {
-  visibility: visible;
+  height: auto;
   opacity: 1;
-  transition-delay: 0s;
+  transition: height 0ms 0ms, opacity 600ms 0ms;
 }
 
 /**[Toolbar button hover colour]**/
