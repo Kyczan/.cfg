@@ -4,7 +4,7 @@ ICON=$HOME/.config/dunst/icons/software-update-available.png
 
 vivaldi_count=`/usr/bin/checkupdates | grep vivaldi | wc -l`
 update="yay"
-notifyi3="i3-msg -q 'exec --no-startup-id pkill -SIGRTMIN+13 i3blocks'"
+# notifyi3="i3-msg -q 'exec --no-startup-id pkill -SIGRTMIN+13 i3blocks'"
 notifysend="notify-send 'System update' 'Done!' -i $ICON"
 msg="echo 'Done - Press enter to exit'; read"
 
@@ -14,4 +14,4 @@ else
   vivaldi_update=""
 fi
 
-st -e sh -c "$update && $vivaldi_update $notifysend && $msg && $notifyi3"
+st -e sh -c "$update && $vivaldi_update $notifysend && $msg"

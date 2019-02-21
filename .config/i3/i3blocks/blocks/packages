@@ -10,11 +10,6 @@ urgent_value=5
 package_count=$(/usr/bin/checkupdates | wc -l)
 label="$glyph_update ${package_count}<span> </span>"
 
-# update on left click
-case $BLOCK_BUTTON in
-  1) $HOME/.config/i3/scripts/run-updates 
-esac
-
 if [[ "${package_count}" -gt 0 ]]; then
   set-label "$label" i3.block.fgrnd
   if [[ "${package_count}" -gt "${urgent_value}" ]]; then
@@ -23,3 +18,8 @@ if [[ "${package_count}" -gt 0 ]]; then
 else
   echo "" # no updates
 fi
+
+# update on left click
+case $BLOCK_BUTTON in
+  1) $HOME/.config/i3/scripts/run-updates && echo ""
+esac
