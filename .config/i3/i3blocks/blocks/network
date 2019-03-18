@@ -4,7 +4,8 @@
 
 # icons from icons-in-terminal
 . $HOME/.local/share/icons-in-terminal/icons_bash.sh
-glyph_wifi=`echo -e $fa_wifi`
+glyph_wifi=`echo -e $md_network_wifi`
+glyph_vpn_wifi=`echo -e $md_wifi_lock`
 
 case $BLOCK_BUTTON in
   1) $HOME/.config/i3/scripts/run-network
@@ -17,8 +18,17 @@ URGENT_VALUE=20
 
 if [[ "${status}" == "up" ]]; then
   if [[ -d "/sys/class/net/${device}/wireless" ]]; then
+
+    connected=$(nordvpn status | grep -wo Connected);
+
+    if [[ "${connected}" = "Connected" ]]; then
+      glyph=$glyph_vpn_wifi
+    else
+      glyph=$glyph_wifi
+    fi
+
     quality=$(grep ${device} /proc/net/wireless | awk '{ print int($3 * 100 / 70) }')
-    set-label "$glyph_wifi ${quality}%" i3.block.fgrnd
+    set-label "$glyph ${quality}%" i3.block.fgrnd
 
     if [[ "${quality}" -le "${URGENT_VALUE}" ]]; then
       exit 33

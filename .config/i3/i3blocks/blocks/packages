@@ -21,5 +21,5 @@ fi
 
 # update on left click
 case $BLOCK_BUTTON in
-  1) $HOME/.config/i3/scripts/run-updates && echo ""
+  1) $HOME/.config/i3/scripts/run-updates && echo "" ;;
 esac
