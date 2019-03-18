@@ -8,7 +8,8 @@ glyph_wifi=`echo -e $md_network_wifi`
 glyph_vpn_wifi=`echo -e $md_wifi_lock`
 
 case $BLOCK_BUTTON in
-  1) $HOME/.config/i3/scripts/run-network
+  1) $HOME/.config/i3/scripts/run-network ;;
+  3) $HOME/.config/i3/scripts/dunst-vpn ;;
 esac
 
 device="${BLOCK_INSTANCE:-wlan0}"

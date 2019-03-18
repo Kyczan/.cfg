@@ -1,0 +1,8 @@
+#!/bin/bash
+
+icon=$HOME/.config/dunst/icons/computer.png
+
+vpn_info=$(nordvpn status);
+
+notify-send "VPN" "${vpn_info}" -i "$icon"
+
