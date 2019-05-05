@@ -38,7 +38,8 @@ weather_url="http://api.openweathermap.org/data/2.5/weather?id=${city_id}&appid=
 data=$(wget -qO- "${weather_url}")
 weather_main=`parse "${data}" weather[0].main`
 weather_code=`parse "${data}" weather[0].id`
-temp=`parse "${data}" main.temp`
+temp_float=`parse "${data}" main.temp`
+temp=`echo $temp_float | awk '{print int($1+0.5)}'`
 weather_icon=`parse "${data}" weather[0].icon`
 
 case ${weather_code} in
