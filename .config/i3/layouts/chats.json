@@ -1,50 +1,61 @@
 {
-    "border": "pixel",
-    "current_border_width": 0,
-    "floating": "auto_off",
-    "name": "Whatsapp",
-    "percent": 0.5,
-    "swallows": [
-       {
-         "class": "^Surf$"
-       }
-    ],
-    "type": "con"
-}
-
-{
-    "border": "none",
-    "floating": "auto_off",
-    "layout": "splitv",
-    "percent": 0.5,
-    "type": "con",
-    "nodes": [
+  "border": "none",
+  "floating": "auto_off",
+  "layout": "tabbed",
+  "percent": null,
+  "type": "con",
+  "nodes": [
+    {
+      "border": "pixel",
+      "current_border_width": 0,
+      "floating": "auto_off",
+      "name": "Telegram",
+      "percent": 0.25,
+      "swallows": [
         {
-            "border": "pixel",
-            "current_border_width": 0,
-            "floating": "auto_off",
-            "name": "Messenger",
-            "percent": 0.5,
-            "swallows": [
-               {
-                "class": "^Surf$"
-               }
-            ],
-            "type": "con"
-        },
-        {
-            "border": "pixel",
-            "current_border_width": 0,
-            "floating": "auto_off",
-            "name": "Signal",
-            "percent": 0.5,
-            "swallows": [
-               {
-                "class": "^Signal$"
-               }
-            ],
-            "type": "con"
+          "class": "^TelegramDesktop$"
         }
-    ]
+      ],
+      "type": "con"
+    },
+    {
+      "border": "pixel",
+      "current_border_width": 0,
+      "floating": "auto_off",
+      "name": "Signal",
+      "percent": 0.25,
+      "swallows": [
+        {
+          "class": "^Signal$"
+        }
+      ],
+      "type": "con"
+    },
+    {
+      "border": "pixel",
+      "current_border_width": 0,
+      "floating": "auto_off",
+      "name": "@WhatsApp",
+      "percent": 0.25,
+      "swallows": [
+        {
+          "class": "^Surf$"
+        }
+      ],
+      "type": "con"
+    },
+    {
+      "border": "pixel",
+      "current_border_width": 0,
+      "floating": "auto_off",
+      "name": "Messenger",
+      "percent": 0.25,
+      "swallows": [
+        {
+          "class": "^Surf$"
+        }
+      ],
+      "type": "con"
+    }
+  ]
 }
-
